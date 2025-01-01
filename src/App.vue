@@ -18,7 +18,7 @@
               :show-array-index="true"
               :show-line="true"
               :sort="false"
-              :preview-mode="true"
+              :expanded="true"
               :highlight-mouseover-node="true"
           />
           <div v-else class="error">Invalid JSON</div>
