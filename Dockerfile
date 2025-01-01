@@ -1,10 +1,17 @@
-FROM nginx:alpine
+# 使用 Node.js 作为基础镜像
+FROM node:16-alpine
 
-# 将打包后的文件复制到 Nginx 的默认静态文件目录
-COPY dist/ /usr/share/nginx/html
+# 设置工作目录
+WORKDIR /app
 
-# 暴露 80 端口
-EXPOSE 80
+# 复制打包后的文件
+COPY dist/ /app/dist
 
-# 启动 Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# 全局安装 serve
+RUN npm install -g serve
+
+# 暴露端口
+EXPOSE 3000
+
+# 启动 serve
+CMD ["serve", "-s", "dist", "-l", "3000"]
