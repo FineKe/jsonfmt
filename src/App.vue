@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       rawJson: '',
-      parsedJson: {"name": "John", "age": 30, "city": "New York"},
+      parsedJson: null,
       expanded: false
     };
   },
